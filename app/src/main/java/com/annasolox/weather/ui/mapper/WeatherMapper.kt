@@ -1,6 +1,5 @@
 package com.annasolox.weather.ui.mapper
 
-import com.annasolox.weather.data.api.model.Weather
 import com.annasolox.weather.data.api.model.WeatherResponse
 
 object WeatherMapper {
