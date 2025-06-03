@@ -15,8 +15,8 @@ object WeatherMapper {
             pressure = weatherApi.main.pressure,
             humidity = weatherApi.main.humidity,
             wind = weatherApi.wind.speed,
-            title = weatherApi.weather.main,
-            description = weatherApi.weather.description,
+            title = weatherApi.weather.first().main,
+            description = weatherApi.weather.first().description,
             sunrise = DateFormatter.formatTime(weatherApi.sys.sunrise),
             sunset = DateFormatter.formatTime(weatherApi.sys.sunset)
         )

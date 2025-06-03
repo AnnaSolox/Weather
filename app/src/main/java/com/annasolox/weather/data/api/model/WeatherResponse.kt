@@ -2,7 +2,7 @@ package com.annasolox.weather.data.api.model
 
 data class WeatherResponse(
     val coord: Coord,
-    val weather: Weather,
+    val weather: List<Weather>,
     val main: Main,
     val visibility: Int,
     val wind: Wind,

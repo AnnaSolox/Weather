@@ -14,7 +14,7 @@ object ForecastMapper {
             val minTemp = items.minOf { it.main.temp }
             val maxTemp = items.maxOf { it.main.temp }
 
-            val title = items.mapNotNull { it.weather.firstOrNull()?.main }
+            val title = items.mapNotNull { it.weather.firstOrNull()?.description }
                 .groupingBy { it }
                 .eachCount()
                 .maxByOrNull { it.value }
@@ -24,7 +24,7 @@ object ForecastMapper {
                 date = date,
                 maxTemp = maxTemp,
                 minTemp = minTemp,
-                title = title
+                description = title
             )
         }
         return forecastList

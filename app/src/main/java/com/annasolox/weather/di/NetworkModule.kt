@@ -20,40 +20,30 @@ object NetworkModule {
 
     @Provides
     @Apikey
-    fun provideApiKey(): String {
-        return BuildConfig.API_KEY
-    }
+    fun provideApiKey(): String = BuildConfig.API_KEY
 
     @Provides
     @Baseurl
-    fun provideBaseUrl(): String {
-        return BuildConfig.BASE_URL
-    }
+    fun provideBaseUrl(): String = BuildConfig.BASE_URL
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(apiKeyInterceptor: ApiKeyInterceptor): OkHttpClient{
-        return OkHttpClient.Builder()
+    fun provideOkHttpClient(apiKeyInterceptor: ApiKeyInterceptor): OkHttpClient = OkHttpClient.Builder()
             .addInterceptor(apiKeyInterceptor)
             .build()
-    }
 
     @Singleton
     @Provides
     fun provideRetrofit(
         client: OkHttpClient,
         @Baseurl baseUrl: String
-    ): Retrofit {
-        return  Retrofit.Builder()
+    ): Retrofit =  Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    }
 
     @Singleton
     @Provides
-    fun provideApiService(retrofit: Retrofit): OpenWeatherApiService {
-        return retrofit.create(OpenWeatherApiService::class.java)
-    }
+    fun provideApiService(retrofit: Retrofit): OpenWeatherApiService = retrofit.create(OpenWeatherApiService::class.java)
 }

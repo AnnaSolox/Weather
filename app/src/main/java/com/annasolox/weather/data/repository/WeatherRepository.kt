@@ -1,5 +1,6 @@
 package com.annasolox.weather.data.repository
 
+import android.util.Log
 import com.annasolox.weather.core.Resource
 import com.annasolox.weather.data.api.OpenWeatherApiService
 import com.annasolox.weather.data.bbdd.CityDao
@@ -25,9 +26,10 @@ class WeatherRepository @Inject constructor(
             try {
                 val currentWeather = weatherApiService.getCurrentWeather(lat, lon, language)
                 val forecast = weatherApiService.getForecastWeather(lat, lon, language)
+                Log.d("WeatherRepository", "Forecast: ${forecast.list.last()}")
 
                 val weatherUi = WeatherMapper.fromApiToUi(currentWeather)
-                val forecastUi = ForecastMapper.fromApiToUi(forecast)
+                val forecastUi = ForecastMapper.fromApiToUi(forecast).drop(1).take(4)
                 weatherUi.forecast = forecastUi
 
                 Resource.Success(weatherUi)

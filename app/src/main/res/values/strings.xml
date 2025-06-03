@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Weather</string>
+    <string name="app_name" translatable="false">Weather</string>
+    <string name="humidity_property">Humidity</string>
+    <string name="wind_preperty">Wind</string>
+    <string name="pressure_property">Pressure</string>
+    <string name="humidity_icon_cd">Humidity icon</string>
+    <string name="wind_icon_cd">Wind icon</string>
+    <string name="pressure_icon_cd">Pressure icon</string>
 </resources>

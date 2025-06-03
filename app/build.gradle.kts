@@ -26,8 +26,8 @@ android {
         versionName = "1.0"
 
         // API properties for OpenWeatherMap
-        buildConfigField("String", "API_KEY", apiProperties.getProperty("API_KEY", "\"\""))
-        buildConfigField("String", "BASE_URL", apiProperties.getProperty("BASE_URL", "\"\""))
+        buildConfigField("String", "API_KEY", "\"${apiProperties.getProperty("API_KEY")}\"")
+        buildConfigField("String", "BASE_URL", "\"${apiProperties.getProperty("BASE_URL")}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -81,5 +81,8 @@ dependencies {
     ksp(libs.androidx.room.compiler)
     //Hilt
     implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.hilt.android.compiler)
+    //Compose livedata
+    implementation(libs.androidx.compose.livedata)
 }

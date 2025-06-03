@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="humidity_property">Humedad</string>
+    <string name="wind_preperty">Viento</string>
+    <string name="pressure_property">Presión</string>
+    <string name="humidity_icon_cd">Icono humedad</string>
+    <string name="wind_icon_cd">Icono viento</string>
+    <string name="pressure_icon_cd">Icono presión</string>
+</resources>
