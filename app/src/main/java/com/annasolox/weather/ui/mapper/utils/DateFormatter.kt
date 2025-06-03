@@ -1,4 +1,4 @@
-package com.annasolox.weather.utils
+package com.annasolox.weather.ui.mapper.utils
 
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter

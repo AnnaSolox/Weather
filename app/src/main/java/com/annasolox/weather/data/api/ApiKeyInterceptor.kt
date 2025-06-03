@@ -1,9 +1,11 @@
 package com.annasolox.weather.data.api
 
+import com.annasolox.weather.di.qualifier.Apikey
 import okhttp3.Interceptor
 import okhttp3.Response
+import javax.inject.Inject
 
-class ApiKeyInterceptor(private val apikey: String): Interceptor{
+class ApiKeyInterceptor @Inject constructor (@Apikey private val apikey: String): Interceptor{
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
 

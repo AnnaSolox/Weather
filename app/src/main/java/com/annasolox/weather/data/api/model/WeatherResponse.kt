@@ -8,5 +8,6 @@ data class WeatherResponse(
     val wind: Wind,
     val clouds: Clouds,
     val dt: Long,
-    val sys: Sys
+    val sys: Sys,
+    val name: String,
 )

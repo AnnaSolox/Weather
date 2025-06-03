@@ -13,5 +13,5 @@ data class Weather(
     val description: String,
     val sunrise: String,
     val sunset: String,
-    val forecast: List<Forecast>
+    var forecast: List<Forecast> = emptyList()
 )
