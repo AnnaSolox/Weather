@@ -30,6 +30,10 @@ class GetWeatherUseCase @Inject constructor(private val repository: WeatherRepos
                             .groupingBy { it.description }
                             .eachCount()
                             .maxByOrNull { it.value }
+                            ?.key ?: "",
+                        icon = entries.
+                            groupBy { it.icon }
+                            .maxByOrNull { it.value.size }
                             ?.key ?: ""
                     )
                 }

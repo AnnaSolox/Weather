@@ -13,5 +13,6 @@ data class WeatherUi(
     val description: String,
     val sunrise: String,
     val sunset: String,
+    val icon: Int,
     val forecast: List<ForecastUi>
 )

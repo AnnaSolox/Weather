@@ -21,7 +21,7 @@ import com.annasolox.weather.R
 fun MainInfo(
     icon: Int = R.drawable.sun_icon,
     temperature: Int = 23,
-    descpription: String = "Clear Sky"
+    description: String = "Clear Sky"
 ){
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Icon(
@@ -41,7 +41,7 @@ fun MainInfo(
             )
         }
         Text(
-            text = descpription,
+            text = description,
             style = MaterialTheme.typography.titleLarge,
             color = Color.White
         )

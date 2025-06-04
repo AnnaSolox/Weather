@@ -22,7 +22,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.annasolox.weather.R
 import com.annasolox.weather.ui.model.ForecastUi
 
 @Composable
@@ -56,7 +55,7 @@ fun ForecastItem(
         )
 
         Icon(
-            painter = painterResource(R.drawable.sun_icon),
+            painter = painterResource(forecast.icon),
             contentDescription = "Forecast Icon",
             tint = Color.White,
             modifier = Modifier.size(16.dp).weight(.4f)

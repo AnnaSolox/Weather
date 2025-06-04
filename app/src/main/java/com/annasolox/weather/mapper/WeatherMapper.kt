@@ -21,7 +21,8 @@ object WeatherMapper {
             title = weatherApi.weather.first().main,
             description = weatherApi.weather.first().description,
             sunrise = weatherApi.sys.sunrise,
-            sunset = weatherApi.sys.sunset
+            sunset = weatherApi.sys.sunset,
+            icon = weatherApi.weather.first().icon
         )
     }
 
@@ -42,7 +43,8 @@ object WeatherMapper {
             description = weather.description,
             sunrise = DateFormatter.formatTime(weather.sunrise),
             sunset = DateFormatter.formatTime(weather.sunset),
-            forecast = forecastList.map { ForecastMapper.fromDomainToUi(it) }
+            forecast = forecastList.map { ForecastMapper.fromDomainToUi(it) },
+            icon = WeatherIconMapper.mapIconToDrawable(weather.icon)
         )
     }
 }

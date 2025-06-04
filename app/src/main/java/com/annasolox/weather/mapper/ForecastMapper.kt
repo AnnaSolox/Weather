@@ -12,7 +12,8 @@ object ForecastMapper {
             ForecastDomain(
                 date = forecast.dt,
                 temperature = forecast.main.temp,
-                description = forecast.weather.first().description
+                description = forecast.weather.first().description,
+                icon = forecast.weather.first().icon
             )
         }
         return forecastDomain
@@ -23,7 +24,8 @@ object ForecastMapper {
             date = dailyForecastDomain.date,
             maxTemp = dailyForecastDomain.maxTemp.roundToInt(),
             minTemp = dailyForecastDomain.minTemp.roundToInt(),
-            description = dailyForecastDomain.description
+            description = dailyForecastDomain.description,
+            icon = WeatherIconMapper.mapIconToDrawable(dailyForecastDomain.icon)
         )
     }
 }

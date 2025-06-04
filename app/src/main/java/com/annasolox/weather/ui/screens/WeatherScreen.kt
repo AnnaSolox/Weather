@@ -75,8 +75,9 @@ fun WeatherScreen(
                         )
                         Spacer(Modifier.size(32.dp))
                         MainInfo(
+                            icon = weatherData.icon,
                             temperature = weatherData.currentTemp,
-                            descpription = weatherData.description
+                            description = weatherData.description
                         )
                         Spacer(Modifier.size(40.dp))
                         PropertiesBlock(

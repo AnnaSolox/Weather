@@ -13,4 +13,5 @@ data class WeatherDomain(
     val description: String,
     val sunrise: Long,
     val sunset: Long,
+    val icon: String
 )
