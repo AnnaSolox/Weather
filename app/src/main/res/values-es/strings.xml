@@ -7,4 +7,5 @@
     <string name="humidity_icon_cd">Icono humedad</string>
     <string name="wind_icon_cd">Icono viento</string>
     <string name="pressure_icon_cd">Icono presión</string>
+    <string name="search_city_label">Buscar ciudad</string>
 </resources>

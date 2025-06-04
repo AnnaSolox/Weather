@@ -6,4 +6,6 @@
     <string name="humidity_icon_cd">Humidity icon</string>
     <string name="wind_icon_cd">Wind icon</string>
     <string name="pressure_icon_cd">Pressure icon</string>
+    <string name="search_city_label">Search city</string>
+    <string name="search_icon_cd">Search Icon</string>
 </resources>

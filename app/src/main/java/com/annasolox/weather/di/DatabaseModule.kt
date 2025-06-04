@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
-    private const val DATABASE_NAME = "weather_database"
+    private const val DATABASE_NAME = "cities.db"
 
     @Provides
     @Singleton
@@ -26,6 +26,8 @@ object DatabaseModule {
             WeatherDatabase::class.java,
             DATABASE_NAME
         )
+            .fallbackToDestructiveMigration(true)
+            .createFromAsset(DATABASE_NAME)
             .build()
     }
 

@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WeatherViewModel @Inject constructor(
-    private val getWeatherUseCase: GetWeatherUseCase
+    private val getWeatherUseCase: GetWeatherUseCase,
 ) : ViewModel() {
     val lang: String = Locale.getDefault().language
 

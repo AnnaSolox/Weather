@@ -29,7 +29,7 @@ fun PropertiesBlock(
             .background(Color.Black.copy(alpha = 0.3f))
     ) {
         Row(
-            Modifier.padding(horizontal = 8.dp, vertical = 14.dp)
+            Modifier.padding(horizontal = 8.dp, vertical = 21.dp)
         ) {
             Property(
                 modifier = Modifier.weight(1f),
