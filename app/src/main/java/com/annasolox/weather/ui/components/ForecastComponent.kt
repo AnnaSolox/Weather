@@ -1,4 +1,4 @@
-package com.annasolox.weather.ui.composables
+package com.annasolox.weather.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

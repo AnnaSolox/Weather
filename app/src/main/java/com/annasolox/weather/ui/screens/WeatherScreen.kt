@@ -1,6 +1,5 @@
 package com.annasolox.weather.ui.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -12,7 +11,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -21,10 +19,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.annasolox.weather.core.Resource
-import com.annasolox.weather.ui.composables.ForecastComponent
-import com.annasolox.weather.ui.composables.MainInfo
-import com.annasolox.weather.ui.composables.PlaceAndDate
-import com.annasolox.weather.ui.composables.PropertiesBlock
+import com.annasolox.weather.ui.components.ForecastComponent
+import com.annasolox.weather.ui.components.MainInfo
+import com.annasolox.weather.ui.components.PlaceAndDate
+import com.annasolox.weather.ui.components.PropertiesBlock
 import com.annasolox.weather.ui.viewmodel.WeatherViewModel
 
 @Composable
@@ -34,15 +32,9 @@ fun WeatherScreen(
 ) {
     val weather by viewModel.weather.observeAsState(Resource.Loading)
 
-    LaunchedEffect(Unit) {
-        viewModel.getWeather(39.9333, -0.1)
-    }
-
-
     Box(
         Modifier
             .fillMaxSize()
-            .background(Color(0xFF1E88E5))
             .padding(16.dp)
     ) {
 
@@ -68,18 +60,17 @@ fun WeatherScreen(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
-                        Spacer(Modifier.size(8.dp))
                         PlaceAndDate(
                             weatherData.city,
                             weatherData.date
                         )
-                        Spacer(Modifier.size(32.dp))
+                        Spacer(Modifier.size(28.dp))
                         MainInfo(
                             icon = weatherData.icon,
                             temperature = weatherData.currentTemp,
                             description = weatherData.description
                         )
-                        Spacer(Modifier.size(40.dp))
+                        Spacer(Modifier.size(32.dp))
                         PropertiesBlock(
                             humidity = weatherData.humidity,
                             pressure = weatherData.pressure,

@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.google.ksp)
     alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 val apiPropertiesFile = rootProject.file("openweather.properties")
@@ -85,4 +86,8 @@ dependencies {
     ksp(libs.hilt.android.compiler)
     //Compose livedata
     implementation(libs.androidx.compose.livedata)
+    //Navigation compose
+    implementation(libs.androidx.navigation.compose)
+    //Serializacion
+    implementation(libs.kotlinx.serialization.json)
 }

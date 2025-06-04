@@ -1,8 +1,7 @@
-package com.annasolox.weather.ui.composables
+package com.annasolox.weather.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -30,7 +29,6 @@ fun MainInfo(
             tint = Color.White,
             modifier = Modifier.size(120.dp)
         )
-        Spacer(Modifier.size(16.dp))
         Row(verticalAlignment = Alignment.Top) {
             Text(
                 text = "${temperature}º",

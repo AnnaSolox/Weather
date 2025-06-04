@@ -1,4 +1,4 @@
-package com.annasolox.weather.ui.composables
+package com.annasolox.weather.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -39,7 +39,7 @@ fun ForecastItem(
 
     val startPercent = ((forecast.minTemp - globalMin) / totalRange).toFloat().coerceAtLeast(0f)
     val endPercent = ((forecast.maxTemp - globalMin) / totalRange).toFloat().coerceIn(startPercent, 1f)
-    val linearBoxTemp = 68.dp
+    val linearBoxTemp = 72.dp
 
     Row(
         Modifier
@@ -83,7 +83,7 @@ fun ForecastItem(
             Box(
                 modifier = Modifier
                     .width(linearBoxTemp)
-                    .height(8.dp)
+                    .height(4.dp)
                     .background(Color.LightGray, RoundedCornerShape(4.dp))
             ) {
                 val totalWidth = linearBoxTemp

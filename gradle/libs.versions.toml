@@ -7,9 +7,11 @@ coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
+kotlinxSerializationJson = "1.8.1"
 lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.10.1"
 composeBom = "2025.05.01"
+navigationCompose = "2.9.0"
 okhttp = "4.12.0"
 retrofit = "3.0.0"
 room = "2.7.1"
@@ -18,6 +20,7 @@ ksp = "2.1.20-2.0.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -34,6 +37,7 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 #Compose livedata
 androidx-compose-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata"}
 #Retrofit
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 retrofit = { group = "com.squareup.retrofit2", name="retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { group = "com.squareup.retrofit2", name="converter-gson", version.ref = "retrofit" }
 #OkHttp
@@ -53,3 +57,5 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 #Ksp
 google-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 dagger-hilt = { id ="com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
