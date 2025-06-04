@@ -1,8 +1,8 @@
 package com.annasolox.weather.ui.model
 
-data class Forecast(
+data class ForecastUi(
     val date: String,
-    val maxTemp: Double,
-    val minTemp: Double,
+    val maxTemp: Int,
+    val minTemp: Int,
     val description: String
 )

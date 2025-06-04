@@ -1,11 +1,11 @@
 package com.annasolox.weather.ui.model
 
-data class Weather(
+data class WeatherUi(
     val date: String,
     val city: String,
     val country: String,
-    val currentTemp: Double,
-    val feelsLike: Double,
+    val currentTemp: Int,
+    val feelsLike: Int,
     val pressure: Int,
     val humidity: Int,
     val wind: Double,
@@ -13,5 +13,5 @@ data class Weather(
     val description: String,
     val sunrise: String,
     val sunset: String,
-    var forecast: List<Forecast> = emptyList()
+    val forecast: List<ForecastUi>
 )

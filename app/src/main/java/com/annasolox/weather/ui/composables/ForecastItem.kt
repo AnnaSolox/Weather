@@ -23,12 +23,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.annasolox.weather.R
-import com.annasolox.weather.ui.model.Forecast
-import kotlin.math.roundToInt
+import com.annasolox.weather.ui.model.ForecastUi
 
 @Composable
 fun ForecastItem(
-    forecast: Forecast,
+    forecast: ForecastUi,
     globalMin: Float,
     totalRange: Float){
 
@@ -77,7 +76,7 @@ fun ForecastItem(
             horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             Text(
-                text = "${forecast.minTemp.roundToInt()}º",
+                text = "${forecast.minTemp}º",
                 style = MaterialTheme.typography.bodySmall,
                 color = Color.White
             )
@@ -102,7 +101,7 @@ fun ForecastItem(
             }
 
             Text(
-                text = "${forecast.maxTemp.roundToInt()}º",
+                text = "${forecast.maxTemp}º",
                 style = MaterialTheme.typography.bodySmall,
                 color = Color.White
             )

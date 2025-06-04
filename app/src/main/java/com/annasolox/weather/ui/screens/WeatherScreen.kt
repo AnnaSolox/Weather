@@ -26,7 +26,6 @@ import com.annasolox.weather.ui.composables.MainInfo
 import com.annasolox.weather.ui.composables.PlaceAndDate
 import com.annasolox.weather.ui.composables.PropertiesBlock
 import com.annasolox.weather.ui.viewmodel.WeatherViewModel
-import kotlin.math.roundToInt
 
 @Composable
 fun WeatherScreen(
@@ -36,7 +35,7 @@ fun WeatherScreen(
     val weather by viewModel.weather.observeAsState(Resource.Loading)
 
     LaunchedEffect(Unit) {
-        viewModel.getWeather(39.9333, -0.1, "es")
+        viewModel.getWeather(39.9333, -0.1)
     }
 
 
@@ -76,7 +75,7 @@ fun WeatherScreen(
                         )
                         Spacer(Modifier.size(32.dp))
                         MainInfo(
-                            temperature = weatherData.currentTemp.roundToInt(),
+                            temperature = weatherData.currentTemp,
                             descpription = weatherData.description
                         )
                         Spacer(Modifier.size(40.dp))

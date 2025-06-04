@@ -1,8 +1,8 @@
-package com.annasolox.weather.ui.mapper.utils
+package com.annasolox.weather.mapper.utils
 
+import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.time.Instant
 
 object DateFormatter{
     private val dateFormatter = DateTimeFormatter.ofPattern("EEE, dd/MM/yyyy")
