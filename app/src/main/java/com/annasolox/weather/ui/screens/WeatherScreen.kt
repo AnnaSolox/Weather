@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.annasolox.weather.core.Resource
 import com.annasolox.weather.ui.components.ForecastComponent
@@ -56,31 +57,51 @@ fun WeatherScreen(
 
                 is Resource.Success -> {
                     val weatherData = (weather as Resource.Success).data
-                    Column(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        PlaceAndDate(
-                            weatherData.city,
-                            weatherData.date
-                        )
-                        Spacer(Modifier.size(28.dp))
-                        MainInfo(
-                            icon = weatherData.icon,
-                            temperature = weatherData.currentTemp,
-                            description = weatherData.description
-                        )
-                        Spacer(Modifier.size(32.dp))
-                        PropertiesBlock(
-                            humidity = weatherData.humidity,
-                            pressure = weatherData.pressure,
-                            wind = weatherData.wind,
-                        )
-                        Spacer(Modifier.size(16.dp))
-                        ForecastComponent(
-                            modifier = Modifier.height(130.dp),
-                            forecasts = weatherData.forecast
-                        )
+
+                    ConstraintLayout(Modifier.fillMaxSize()) {
+                        val (placeAndDate, mainInfo, propertiesBlock) = createRefs()
+                        Box(modifier = Modifier.constrainAs(placeAndDate) {
+                            top.linkTo(parent.top, margin = 16.dp)
+                            start.linkTo(parent.start)
+                            end.linkTo(parent.end)
+                        }) {
+                            PlaceAndDate(
+                                weatherData.city,
+                                weatherData.date
+                            )
+                        }
+
+                        Box(modifier = Modifier.constrainAs(mainInfo) {
+                            top.linkTo(placeAndDate.bottom, margin = 16.dp)
+                            start.linkTo(parent.start)
+                            end.linkTo(parent.end)
+                        }) {
+                            MainInfo(
+                                icon = weatherData.icon,
+                                temperature = weatherData.currentTemp,
+                                description = weatherData.description
+                            )
+                        }
+
+                        Box(modifier = Modifier.constrainAs(propertiesBlock) {
+                            top.linkTo(mainInfo.bottom, margin = 32.dp)
+                            start.linkTo(parent.start)
+                            end.linkTo(parent.end)
+                            bottom.linkTo(parent.bottom)
+                        }) {
+                            Column(Modifier.fillMaxWidth()) {
+                                PropertiesBlock(
+                                    humidity = weatherData.humidity,
+                                    pressure = weatherData.pressure,
+                                    wind = weatherData.wind,
+                                )
+                                Spacer(Modifier.size(16.dp))
+                                ForecastComponent(
+                                    modifier = Modifier.height(145.dp),
+                                    forecasts = weatherData.forecast
+                                )
+                            }
+                        }
                     }
                 }
             }

@@ -11,5 +11,5 @@ interface CityDao{
             "WHERE name LIKE :name || '%'" +
             "AND (state LIKE :state || '%' OR :state IS NULL OR :state = '')" +
             "AND country LIKE :country || '%'")
-    fun searchCitiesByName(name: String, state: String, country: String): Flow<List<City>>
+    fun searchCitiesByName(name: String, state: String?, country: String?): Flow<List<City>>
 }

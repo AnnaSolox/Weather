@@ -90,4 +90,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     //Serializacion
     implementation(libs.kotlinx.serialization.json)
+    //Constraint layout compose
+    implementation(libs.androidx.constraintlayout.compose)
+
 }
