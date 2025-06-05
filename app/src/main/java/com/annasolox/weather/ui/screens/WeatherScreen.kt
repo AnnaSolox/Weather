@@ -18,6 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,28 +41,20 @@ fun WeatherScreen(
     sharedViewModel: SharedViewModel
 ) {
     val weather by weatherViewModel.weather.observeAsState(Resource.Loading)
-    val selectedCity by sharedViewModel.selectedCity.collectAsState()
+    val selectedCity by sharedViewModel.selectedCity.collectAsState(null)
     Log.d("WeatherScreen", "Selected city: $selectedCity")
 
-    var actualCoordinates by remember { mutableStateOf<Pair<Double, Double>?>(null) }
+    var actualCoordinates by rememberSaveable { mutableStateOf<Pair<Double, Double>?>(null) }
 
     LaunchedEffect(selectedCity) {
-        selectedCity?.let {
-            if (actualCoordinates == null ||
-                (it.lat != actualCoordinates?.first && it.lon != actualCoordinates?.second)
-            ) {
-                weatherViewModel.getWeather(it.lat, it.lon)
-                actualCoordinates = Pair(it.lat, it.lon)
-            }
+        val (lat, lon) = selectedCity?.let { it.lat to it.lon } ?: (39.9333 to -0.1)
+
+        if (actualCoordinates == null || lat != actualCoordinates!!.first || lon != actualCoordinates!!.second) {
+            weatherViewModel.getWeather(lat, lon)
+            actualCoordinates = lat to lon
         }
     }
 
-    LaunchedEffect(Unit) {
-        if (selectedCity == null) {
-            weatherViewModel.getWeather(39.9333, -0.1)
-            actualCoordinates = Pair(39.9333, -0.1)
-        }
-    }
 
     Box(
         Modifier

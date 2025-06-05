@@ -44,7 +44,7 @@ fun SearchScreen(
     val selectedCity by viewModel.selectedCity.collectAsState()
     Log.d("SearchScreen", "Selected city: $selectedCity")
 
-    val selectedCityShared by sharedViewModel.selectedCity.collectAsState()
+    val selectedCityShared by sharedViewModel.selectedCity.collectAsState(null)
     Log.d("SearchScreen", "Selected city from shared view model: $selectedCityShared")
 
     LaunchedEffect(selectedCity) {
