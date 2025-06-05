@@ -50,7 +50,10 @@ fun SearchScreen(
     LaunchedEffect(selectedCity) {
         selectedCity?.let {
             sharedViewModel.selectCity(it)
-            navController.navigate(WeatherScreen)
+            navController.navigate(WeatherScreen){
+                popUpTo(WeatherScreen){inclusive = true}
+                launchSingleTop = true
+            }
         }
     }
 

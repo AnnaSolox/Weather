@@ -22,10 +22,6 @@ class WeatherViewModel @Inject constructor(
     private val _weather = MutableLiveData<Resource<WeatherUi>>(Resource.Loading)
     val weather: LiveData<Resource<WeatherUi>> = _weather
 
-    init {
-        getWeather(39.9333, -0.1)
-    }
-
     fun getWeather(lat: Double, lon: Double) {
         viewModelScope.launch {
             _weather.value = Resource.Loading

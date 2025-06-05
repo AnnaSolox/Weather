@@ -16,6 +16,9 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -35,14 +38,28 @@ fun WeatherScreen(
     modifier: Modifier = Modifier,
     weatherViewModel: WeatherViewModel = hiltViewModel(),
     sharedViewModel: SharedViewModel
-    ) {
+) {
     val weather by weatherViewModel.weather.observeAsState(Resource.Loading)
     val selectedCity by sharedViewModel.selectedCity.collectAsState()
     Log.d("WeatherScreen", "Selected city: $selectedCity")
 
+    var actualCoordinates by remember { mutableStateOf<Pair<Double, Double>?>(null) }
+
     LaunchedEffect(selectedCity) {
         selectedCity?.let {
-            weatherViewModel.getWeather(it.lat, it.lon)
+            if (actualCoordinates == null ||
+                (it.lat != actualCoordinates?.first && it.lon != actualCoordinates?.second)
+            ) {
+                weatherViewModel.getWeather(it.lat, it.lon)
+                actualCoordinates = Pair(it.lat, it.lon)
+            }
+        }
+    }
+
+    LaunchedEffect(Unit) {
+        if (selectedCity == null) {
+            weatherViewModel.getWeather(39.9333, -0.1)
+            actualCoordinates = Pair(39.9333, -0.1)
         }
     }
 

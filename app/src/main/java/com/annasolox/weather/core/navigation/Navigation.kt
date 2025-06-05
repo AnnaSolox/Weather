@@ -16,6 +16,7 @@ import com.annasolox.weather.ui.viewmodel.SharedViewModel
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
+    val sharedViewModel: SharedViewModel = hiltViewModel()
 
     Scaffold(
         containerColor = Color(0xFF1E88E5),
@@ -32,14 +33,10 @@ fun Navigation() {
             modifier = Modifier.padding(innerPadding)
         ) {
 
-            composable<WeatherScreen> { backStackEntry ->
-                val sharedViewModel: SharedViewModel =
-                    if (navController.previousBackStackEntry != null) hiltViewModel (navController.previousBackStackEntry!!) else hiltViewModel()
-
+            composable<WeatherScreen> {
                 WeatherScreen(sharedViewModel = sharedViewModel)
             }
-            composable<SearchScreen> { backStackEntry ->
-                val sharedViewModel: SharedViewModel = hiltViewModel(backStackEntry)
+            composable<SearchScreen> {
                 SearchScreen(
                     navController = navController,
                     sharedViewModel = sharedViewModel
