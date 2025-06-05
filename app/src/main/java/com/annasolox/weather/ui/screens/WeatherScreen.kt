@@ -27,20 +27,20 @@ import com.annasolox.weather.ui.components.ForecastComponent
 import com.annasolox.weather.ui.components.MainInfo
 import com.annasolox.weather.ui.components.PlaceAndDate
 import com.annasolox.weather.ui.components.PropertiesBlock
-import com.annasolox.weather.ui.viewmodel.CitiesViewModel
+import com.annasolox.weather.ui.viewmodel.SharedViewModel
 import com.annasolox.weather.ui.viewmodel.WeatherViewModel
 
 @Composable
 fun WeatherScreen(
     modifier: Modifier = Modifier,
     weatherViewModel: WeatherViewModel = hiltViewModel(),
-    cityViewModel: CitiesViewModel = hiltViewModel()
+    sharedViewModel: SharedViewModel
     ) {
     val weather by weatherViewModel.weather.observeAsState(Resource.Loading)
-    val selectedCity by cityViewModel.selectedCity.collectAsState()
+    val selectedCity by sharedViewModel.selectedCity.collectAsState()
     Log.d("WeatherScreen", "Selected city: $selectedCity")
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(selectedCity) {
         selectedCity?.let {
             weatherViewModel.getWeather(it.lat, it.lon)
         }

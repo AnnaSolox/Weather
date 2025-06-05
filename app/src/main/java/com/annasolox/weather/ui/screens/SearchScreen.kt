@@ -13,6 +13,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -24,22 +25,34 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.annasolox.weather.R
+import com.annasolox.weather.core.navigation.WeatherScreen
 import com.annasolox.weather.ui.components.CityItem
 import com.annasolox.weather.ui.viewmodel.CitiesViewModel
 import com.annasolox.weather.ui.viewmodel.SharedViewModel
 
 @Composable
 fun SearchScreen(
-    modifier: Modifier = Modifier,
+    navController: NavController,
     viewModel: CitiesViewModel = hiltViewModel(),
-    sharedViewModel: SharedViewModel = hiltViewModel()
+    sharedViewModel: SharedViewModel
 ) {
     val cities by viewModel.cities.collectAsState()
     var query by rememberSaveable { mutableStateOf("") }
 
     val selectedCity by viewModel.selectedCity.collectAsState()
     Log.d("SearchScreen", "Selected city: $selectedCity")
+
+    val selectedCityShared by sharedViewModel.selectedCity.collectAsState()
+    Log.d("SearchScreen", "Selected city from shared view model: $selectedCityShared")
+
+    LaunchedEffect(selectedCity) {
+        selectedCity?.let {
+            sharedViewModel.selectCity(it)
+            navController.navigate(WeatherScreen)
+        }
+    }
 
     Column(
         modifier = Modifier

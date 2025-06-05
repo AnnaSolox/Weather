@@ -5,11 +5,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.annasolox.weather.ui.screens.SearchScreen
 import com.annasolox.weather.ui.screens.WeatherScreen
+import com.annasolox.weather.ui.viewmodel.SharedViewModel
 
 @Composable
 fun Navigation() {
@@ -29,8 +31,20 @@ fun Navigation() {
             startDestination = WeatherScreen,
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable<WeatherScreen> { WeatherScreen() }
-            composable<SearchScreen> { SearchScreen() }
+
+            composable<WeatherScreen> { backStackEntry ->
+                val sharedViewModel: SharedViewModel =
+                    if (navController.previousBackStackEntry != null) hiltViewModel (navController.previousBackStackEntry!!) else hiltViewModel()
+
+                WeatherScreen(sharedViewModel = sharedViewModel)
+            }
+            composable<SearchScreen> { backStackEntry ->
+                val sharedViewModel: SharedViewModel = hiltViewModel(backStackEntry)
+                SearchScreen(
+                    navController = navController,
+                    sharedViewModel = sharedViewModel
+                )
+            }
         }
     }
 }
