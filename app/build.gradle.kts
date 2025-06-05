@@ -92,5 +92,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     //Constraint layout compose
     implementation(libs.androidx.constraintlayout.compose)
+    //Splash screen
+    implementation(libs.androidx.core.splashscreen)
 
 }

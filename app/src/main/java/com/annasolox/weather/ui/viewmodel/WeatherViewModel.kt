@@ -9,6 +9,8 @@ import com.annasolox.weather.domain.GetWeatherUseCase
 import com.annasolox.weather.mapper.WeatherMapper
 import com.annasolox.weather.ui.model.WeatherUi
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.util.Locale
 import javax.inject.Inject
@@ -19,8 +21,15 @@ class WeatherViewModel @Inject constructor(
 ) : ViewModel() {
     val lang: String = Locale.getDefault().language
 
+    private val _isReady = MutableStateFlow(false)
+    val isReady = _isReady.asStateFlow()
+
     private val _weather = MutableLiveData<Resource<WeatherUi>>(Resource.Loading)
     val weather: LiveData<Resource<WeatherUi>> = _weather
+
+    init {
+        getWeather(39.9333, -0.1)
+    }
 
     fun getWeather(lat: Double, lon: Double) {
         viewModelScope.launch {
@@ -31,6 +40,7 @@ class WeatherViewModel @Inject constructor(
                 when (result) {
                     is Resource.Success -> {
                         val weatherUi = WeatherMapper.fromDomainToUi(result.data)
+                        _isReady.value = true
                         Resource.Success(weatherUi)
                     }
 

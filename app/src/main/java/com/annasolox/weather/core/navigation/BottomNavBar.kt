@@ -44,7 +44,13 @@ fun BottomNavBar(
         ) {
             items.forEach { item ->
                 IconButton({
-                    navController.navigate(item)
+                    navController.navigate(item){
+                        popUpTo(navController.graph.startDestinationId) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
                 }) {
                     Icon(
                         painter =
