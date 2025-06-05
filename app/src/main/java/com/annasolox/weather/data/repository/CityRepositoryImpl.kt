@@ -16,7 +16,8 @@ class CityRepositoryImpl @Inject constructor(
     ): Flow<List<City>> {
         val safeCountry = country ?: ""
         return cityDao.searchCitiesByName(name, safeCountry).map { cities ->
-            cities.distinctBy { "${it.name}, ${it.country}" }
+            cities
+                .distinctBy { "${it.name}, ${it.country}" }
         }
     }
 

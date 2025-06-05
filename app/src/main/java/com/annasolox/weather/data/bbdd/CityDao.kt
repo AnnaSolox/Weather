@@ -11,6 +11,9 @@ interface CityDao{
     SELECT * FROM cities
     WHERE name LIKE :name || '%'
     AND (:country IS NULL OR country LIKE :country || '%')
+    ORDER BY 
+      CASE WHEN LOWER(name) = LOWER(:name) THEN 0 ELSE 1 END, 
+      name ASC
 """)
     fun searchCitiesByName(name: String, country: String?): Flow<List<City>>
 
