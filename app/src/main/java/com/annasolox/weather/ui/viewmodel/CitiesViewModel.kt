@@ -32,7 +32,7 @@ class CitiesViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             val parts = query.split(",").map { it.trim() }
-            val name = parts.getOrNull(0) ?: ""
+            val name = parts.getOrNull(0)?.trim()?.lowercase() ?: ""
             if(name.isBlank()) {
                 _cities.value = emptyList()
                 return@launch
