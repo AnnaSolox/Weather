@@ -7,14 +7,14 @@ import retrofit2.http.Query
 
 interface OpenWeatherApiService {
 
-    @GET("data/2.5/weather")
+    @GET("weather")
     suspend fun getCurrentWeather(
         @Query("lat") lat: Double,
         @Query("lon") lon: Double,
         @Query("lang") language: String = "es",
     ): WeatherResponse
 
-    @GET("data/2.5/forecast")
+    @GET("forecast")
     suspend fun getForecastWeather(
         @Query("lat") lat: Double,
         @Query("lon") lon: Double,
