@@ -30,7 +30,7 @@
 
 <p float="right">
 <a href="https://openweathermap.org/api">
-<img src="./app/assets/images/openweather_logo.png" width="240px" alt="OpenWeather logo" align="right" style="margin-left: 20px;" />
+<img src="./app/assets/images/openweather_logo.png" width="120px" alt="OpenWeather logo" align="right" style="margin-left: 20px;" />
 </a>
 </p>
 
