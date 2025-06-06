@@ -1,13 +1,13 @@
 # Weather
 
-![Screenshot de la app](./app/assets/screenshots/weather_github_cover.jpg)
+![Screenshot de la app](./app/assets/images/weather_github_cover.jpg)
 
 **Weather** es una aplicación desarrollada en `Kotlin` con `Jetpack` (Room, ViewModel, Compose), `corrutinas`, `flow`, `livedata` y `Material Design` basado en `clean arquitecture` con un modelo de presentación `MVVM`.
 
 ## Tecnologías y librerías
 
 <p float="right">
-  <img src="./app/assets/images/weather_gif.gif" width="240px" align="right" style="margin-left: 20px;" />
+  <img src="./app/assets/images/weather_gif.gif" width="240px" alt="Gif weather app" align="right" style="margin-left: 20px;" />
 </p>
 
 - Sdk mínimo: 28.
@@ -30,7 +30,8 @@
 
 <p float="right">
 <a href="https://openweathermap.org/api">
-<img src="./app/assets/images/openweather_logo.png" width="240px" align="right" style="margin-left: 20px;" />
+<img src="./app/assets/images/openweather_logo.png" width="240px" alt="OpenWeather logo" align="right" style="margin-left: 20px;" />
+</a>
 </p>
 
 La información del tiempo proviene de la API [OpenWeather](https://openweathermap.org/api)
