@@ -5,7 +5,7 @@
 **Weather** es una aplicación desarrollada en `Kotlin` con `Jetpack` (Room, ViewModel, Compose), `corrutinas`, `flow`, `livedata` y `Material Design` basado en `clean arquitecture` con un modelo de presentación `MVVM`.
 
 <p float="right">
-  <img src="./app/assets/screenshots/weather_gif.gif" width="240px" align="right" style="margin-left: 20px;" />
+  <img src="./app/assets/screenshots/weather_gif.gif" width="240px" align="right" style="margin-left: 20px; margin-top: 50px;" />
 </p>
 
 ## Tecnologías y librerías
