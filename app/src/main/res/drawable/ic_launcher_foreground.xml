@@ -3,10 +3,10 @@
     android:height="108dp"
     android:viewportWidth="47.58"
     android:viewportHeight="46.75">
-  <group android:scaleX="0.47"
-      android:scaleY="0.46180117"
-      android:translateX="12.6087"
-      android:translateY="12.580398">
+  <group android:scaleX="0.39722222"
+      android:scaleY="0.39029294"
+      android:translateX="14.340083"
+      android:translateY="14.251903">
 
       <group
           android:name="animationGroup"
