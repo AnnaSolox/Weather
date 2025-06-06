@@ -7,7 +7,7 @@
 ## Tecnologías y librerías
 
 <p float="right">
-  <img src="./app/assets/screenshots/weather_gif.gif" width="240px" align="right" style="margin-left: 20px;" />
+  <img src="./app/assets/images/weather_gif.gif" width="240px" align="right" style="margin-left: 20px;" />
 </p>
 
 - Sdk mínimo: 28.
@@ -25,3 +25,25 @@
 - [Kotlin Serialization](https://github.com/Kotlin/kotlinx.serialization): Serialización sin reflexión, multiplatafora y multi-formato.
 - [ksp](https://github.com/google/ksp): Kotlin Symbol Processing para generación y análisis de código.
 - [SplashScreen](https://developer.android.com/develop/ui/views/launch/splash-screen?hl=es-419#getting-started): API para crear pantallas de carga.
+
+## OpenWeather API
+
+<p float="right">
+<a href="https://openweathermap.org/api">
+<img src="./app/assets/images/openweather_logo.png" width="240px" align="right" style="margin-left: 20px;" />
+</p>
+
+La información del tiempo proviene de la API [OpenWeather](https://openweathermap.org/api)
+</a>
+
+## Licencia
+Diseñado y desarrollado por AnnaSolox en 2025.
+
+Este proyecto está bajo la licencia [Apache 2.0](./LICENSE).
+No puedes usar este archivo salvo en cumplimiento con la Licencia.
+Puedes obtener una copia de la Licencia en:
+
+https://opensource.org/license/apache-2-0
+
+A menos que lo exija la ley aplicable o se acuerde por escrito, el software distribuido bajo la Licencia se distribuye "TAL CUAL", SIN GARANTÍAS NI CONDICIONES DE NINGÚN TIPO, ya sean expresas o implícitas.
+Consulta la Licencia para conocer el lenguaje específico que regula los permisos y limitaciones bajo la Licencia.
