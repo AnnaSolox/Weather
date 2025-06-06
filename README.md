@@ -7,5 +7,5 @@
 ## Tecnologías y librerías
 
 <p float="right">
-  <img src="./app/assets/screenshots/weather_gif.gif" width="240px" style="margin-left: 20px;" />
+  <img src="./app/assets/screenshots/weather_gif.gif" width="240px" align="right" style="margin-left: 20px;" />
 </p>
