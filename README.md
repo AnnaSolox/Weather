@@ -35,7 +35,7 @@
 </p>
 
 La información del tiempo proviene de la API [OpenWeather](https://openweathermap.org/api)
-</a>
+
 
 ## Licencia
 Diseñado y desarrollado por AnnaSolox en 2025.
