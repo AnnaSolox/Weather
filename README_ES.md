@@ -2,7 +2,7 @@
 
 ![Screenshot de la app](./app/assets/images/weather_github_cover.jpg)
 
-> [English version / Versión en Inglés](README_ES.md)
+> [English version / Versión en Inglés](README.md)
 
 **Weather** es una aplicación desarrollada en `Kotlin` con `Jetpack` (Room, ViewModel, Compose), `corrutinas`, `flow`, `livedata` y `Material Design` basado en `clean arquitecture` con un modelo de presentación `MVVM`.
 
